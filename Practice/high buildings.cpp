@@ -13,7 +13,10 @@ void solve()
     if( a+b-c > n ) cout<<"IMPOSSIBLE";
     else
     {
-    	cout<<"Some Value";
+    	fo(i,a-c)
+    	{
+    		
+    	}
     }
 }
 
