@@ -1,4 +1,7 @@
 #include <iostream>
+#include <vector>
+#include <algorithm>
+#include <math.h>
 #define deb(x) cout<<#x<<" "<<x;
 #define ll long long
 #define fo(i,n) for(int i=0;i<n;i++)
@@ -7,28 +10,21 @@ using namespace std;
 
 void solve()
 {
-    int n,a,b,c;
-    cin >> n >> a >> b >> c;
-
-    if( a+b-c > n || (c==1 && a+b-c<n && (a==1 && b==1))) cout<<"IMPOSSIBLE";
-    else
+    int n,x;
+    cin >> n >> x;
+    vector<pair<int,int>> a(n);
+    vector<int> outtime(n);
+    fo(i,n)
     {
-    	for(int i=0;i<a-c;i++)
-    	{
-    		cout<<i+1<<" ";
-    	}
-    	for(int i=0;i<c;i++)
-    	{
-    		cout<<n<<" ";
-    	}
-    	for(int i=0;i<(n-(a+b-c));i++)  
-    	{
-    		cout<<1<<" ";
-    	}
-    	for(int i=0;i<(b-c);i++)
-    	{
-    		cout<<2<<" ";
-    	}
+    	cin >> a[i].first ;    	
+    	a[i].first = ceil((double)a[i].first/x);
+    	a[i].second = i+1;
+    }
+
+    sort(a.begin(), a.end());
+    for(auto i : a)
+    {
+    	cout<<i.second<<" ";
     }
 }
 
@@ -41,6 +37,7 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
+
     int t;
     cin>>t;
     for(int i=1;i<=t;i++)
